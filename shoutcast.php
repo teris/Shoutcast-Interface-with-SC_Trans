@@ -1,0 +1,36 @@
+    <?php
+    header("Content-Type: text/html; charset=utf-8");
+    header("Cache-Control: no-cache, must-revalidate");
+    header("Pragma: no-cache");
+	include_once("config.php");
+	
+        $fp = @fsockopen($shoutserver, $shoutport, $errno, $errstr, 30);
+
+        if ($fp) {
+            fputs($fp, "GET /7.html HTTP/1.0\r\nUser-Agent: XML Getter (Mozilla Compatible)\r\n\r\n");
+				$page 							= "";
+            while(!feof($fp))
+				$page 							.= fgets($fp, 1000);
+				fclose($fp);
+				$page 							= ereg_replace(".*<body>", "", $page);
+				$page 							= ereg_replace("</body>.*", ",", $page);
+				$numbers 						= explode(",", $page);
+				$shoutcast_currentlisteners 	= $numbers[0];
+				$connected 						= $numbers[1];
+				$shoutcast_peaklisteners 		= $numbers[2];
+				$shoutcast_maxlisteners 		= $numbers[3];
+				$shoutcast_reportedlisteners 	= $numbers[4];
+				$shoutcast_bitrate 				= $numbers[5];
+				$shoutcast_cursong 				= $numbers[6];
+				$shoutcast_curbwidth 			= $shoutcast_bitrate * $shoutcast_currentlisteners;
+				$shoutcast_peakbwidth 			= $shoutcast_bitrate * $shoutcast_peaklisteners;
+        }
+
+    if ($connected == 1):
+		echo 'Bitrate: '.$shoutcast_bitrate.'kb/s<br>';
+		echo 'Zuhörer: '.$shoutcast_currentlisteners.' / '.$shoutcast_maxlisteners.'<br>';
+        echo 'Titel: '.htmlspecialchars($shoutcast_cursong);
+    else:
+		echo 'Unser Radio ist zur Zeit offline!';
+    endif;
+    ?>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<response seq="150">
+<data>
+<currentplaylist>playlist</currentplaylist>
+<masterplaylist>playlist</masterplaylist>
+<playlists>
+<playlist>
+	<name>Megamixe</name>
+	<path>priority/archived/Megamixe_1912630579.lst</path>
+</playlist>
+<playlist>
+	<name>playlist</name>
+	<path>/var/www/clients/client8/web13/onlineradio/sc2/playlist.lst</path>
+</playlist>
+</playlists>
+</data>
+</response>
