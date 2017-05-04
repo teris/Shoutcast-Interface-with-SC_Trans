@@ -1,37 +1,28 @@
-Dies ist eine Alpha-Version!
+<h1>Dies ist eine Alpha-Version!</h1>
+Bitte beachte, es ist alles noch in entwecklung!<br>
+Demo derzeit nicht verfügbar<br>
+Mitarbeit wäre super!<br>
+<br>
+<h3>Vorraussetzungen:</h3>
+<ul>
+<li>[SC_Serv](https://github.com/teris/sc_trans-sc_serv-files)</li>
+<li>[SC_Trans2](https://github.com/teris/sc_trans-sc_serv-files)</li>
+<li>MAC OS mit Apache2 und php 5.4 oder höher</li>
+<li>Linux mit Apache2 und php 5.4 oder höher</li>
+<li>Windows mit XAmpp und php 5.5 oder höher (IIS nicht getestet)</li>
+</ul>
+<h3>How to Use:</h3>
+<li>-> config.php anpassen</li>
 
-Bitte beachte, es ist alles noch in entwecklung!
-
-Demo derzeit nicht verfügbar
-
-Mitarbeit wäre super!
-
-Vorraussetzungen:
-
-
--SC_Serv     - https://github.com/teris/sc_trans-sc_serv-files
-
--SC_Trans2   - https://github.com/teris/sc_trans-sc_serv-files
-
--MAC OS mit Apache2 und php 5.4 oder höher
-
--Linux mit Apache2 und php 5.4 oder höher
-
--Windows mit XAmpp und php 5.5 oder höher (IIS nicht getestet)
-
-
-How to Use:
-
--config.php anpassen
-
-
-Reuploaded:
--transcoder.php
--main.css
--event.php
-
-FIX: Style für Tabellen und Inputfelder
-
-ADD: XML Load für Transcoder.php
-
-ADD: Playlisten und Deejays in Eventseintragen (Deejays und Playlisten Aktivieren)
+<h3>Reuploaded:</h3>
+<ul>
+<li>transcoder.php</li>
+<li>main.css</li>
+<li>event.php</li>
+</ul>
+<h3>Edits:</h3>
+<ul>
+<li>FIX: Style für Tabellen und Inputfelder</li>
+<li>ADD: XML Load für Transcoder.php</li>
+<li>ADD: Playlisten und Deejays in Eventseintragen (Deejays und Playlisten Aktivieren)</li>
+</ul>
