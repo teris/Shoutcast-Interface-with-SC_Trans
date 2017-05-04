@@ -26,4 +26,12 @@ How to Use:
 
 
 Reuploaded:
--transcoder.php -- FIX Array load in Variable | Generate XML Datei in Ordner xml
+-transcoder.php
+-main.css
+-event.php
+
+FIX: Style für Tabellen und Inputfelder
+
+ADD: XML Load für Transcoder.php
+
+ADD: Playlisten und Deejays in Eventseintragen (Deejays und Playlisten Aktivieren)
