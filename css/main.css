@@ -358,7 +358,7 @@ h5 {
 }
 
 
-input[type=submit] {
+input[type=submit], input[type=reset] {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	background: #b2c831;
@@ -370,7 +370,7 @@ input[type=submit] {
           border-radius: 4px;
 
 }
-input[type=text], textarea, input[type=password] {
+input[type=text], textarea, input[type=password], select {
 	background: #cdcbcc;
 	font-size: 13px;
 	display: block;
