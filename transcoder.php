@@ -24,13 +24,9 @@ echo "<hr>";
 if($_GET['op']):
 	echo( highlight_string($trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150"),true) );
 	
-	$returns = $trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150");
+	$returns = $between->load_xml($trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150"),'transcoder.xml');
 	echo "<hr><pre>";
-	$xml = simplexml_load_string($returns);
-	//foreach($xml as $key_log => $key_select):
-	//	echo $key_log." - ".$key_select."<br>";
-	//endforeach;
-	print_r($xml->data);
+	print_r($returns['response']);
 	echo "</pre>";
 else:
 	echo( "<font color='red'>Der Befehl war FALSCH</font><br>Bitte setlle bei jedem Befehl 'op=' vorran." );
