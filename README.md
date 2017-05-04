@@ -25,4 +25,5 @@ How to Use:
 -config.php anpassen
 
 
-Interface öffnen: http://localhost/
+Reuploaded:
+-transcoder.php -- FIX Array load in Variable | Generate XML Datei in Ordner xml
