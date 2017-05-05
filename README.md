@@ -26,3 +26,8 @@ Mitarbeit wäre super!<br>
 <li>ADD: XML Load für Transcoder.php</li>
 <li>ADD: Playlisten und Deejays in Eventseintragen (Deejays und Playlisten Aktivieren)</li>
 </ul>
+<hr>
+<img src="http://teris-cooper.de/radio/home.jpg">
+<img src="http://teris-cooper.de/radio/events.jpg">
+<img src="http://teris-cooper.de/radio/playlisten.jpg">
+<img src="http://teris-cooper.de/radio/datein.jpg">
