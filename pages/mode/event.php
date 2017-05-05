@@ -33,7 +33,7 @@ if(isset($_POST['submit'])):
 	$returns = $between->load_xml($trans->getInfoTrans($request."&seq=150"),'transcoder_event_add.xml');
 	
 	echo "<hr><pre>";
-	print_r($returns['response']);
+		print_r($returns['response']);
 	echo "</pre>";
 	
 endif;
@@ -177,3 +177,69 @@ endif;
 	</div>
 </div>
 </form>
+<?php
+if(isset($_POST['id_del'])):
+
+	$returns = $between->load_xml($trans->getInfoTrans("op=deleteevent&id=".$_POST['id']."&seq=150"),'transcoder_event_del.xml');
+	
+	echo "<hr><pre>";
+		print_r($returns['response']);
+	echo "</pre>";
+	
+endif;
+?>
+<div class="row">
+	<div class="col-sm-6 col-lg-6">
+		<div class="dash-unit">
+		<dtitle>Eventliste</dtitle>
+		<hr>
+		
+		<table border="1" cellpadding="2" cellspacing="3" class="display">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Name</th>
+						<th>Aktiv</th>
+						<th>ID</th>
+					</tr>
+				</thead>
+				<tbody>
+		<?php
+		$returns = $between->load_xml($trans->getInfoTrans("op=listevents&seq=150"),'transcoder_event_list.xml');
+		$exit = $returns['response']['data']['eventlist']['event'];
+		
+		//print_r($exit);
+		$i=0;
+		
+		for($i = 0; $exit[$i] >= $i; $i++):
+			echo "<tr>";
+			if($exit[$i]['@attributes']['type'] == 'dj'):
+				echo "<td>Deejay</td>";
+				echo "<td>".$exit[$i]['dj']."</td>";
+				echo "<td>".$exit[$i]['active']."</td>";
+				echo "<td>".$exit[$i]['id']."</td>";
+			elseif($exit[$i]['@attributes']['type'] == 'playlist'):
+				echo "<td>Playlist</td>";
+				echo "<td>".$exit[$i]['playlist']."</td>";
+				echo "<td>".$exit[$i]['active']."</td>";
+				echo "<td>".$exit[$i]['id']."</td>";
+			endif;	
+			echo "</tr>";
+		endfor;	
+		?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-lg-6">
+		<div class="half-unit">
+		<dtitle>Event Löschen</dtitle>
+		<hr>
+		<form method="post" action="">
+		<input type="text" name="id" placeholder="ID des Events eintragen (z.Bsp. 25)">
+		<br>
+		<input type="submit" value="Löschen" name="id_del">
+		</form>
+		</div>
+	</div>
+</div>
