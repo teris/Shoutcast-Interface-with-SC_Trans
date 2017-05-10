@@ -35,7 +35,7 @@ h5 {
 	background-image:url('../images/sep-half.png');
 	background-color: #3d3d3d;
 	color:white;
-	height:290px;
+	min-height:290px;
 }
 
 .dash-unit:hover {

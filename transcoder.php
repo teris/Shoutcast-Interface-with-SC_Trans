@@ -23,7 +23,6 @@ echo "<hr>";
 	
 if($_GET['op']):
 	echo( highlight_string($trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150"),true) );
-	
 	$returns = $between->load_xml($trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150"),'transcoder.xml');
 	echo "<hr><pre>";
 	print_r($returns['response']);

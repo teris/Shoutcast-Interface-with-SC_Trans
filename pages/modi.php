@@ -17,6 +17,10 @@
 				<h3><a href="?page=modi&mode=event">Event Einstellungen</a></h3>
 				<h3><a href="?page=modi&mode=data">Dateien verwalten</a></h3>
 				<h3><a href="?page=modi&mode=points">Endpoint Einstellungen</a></h3>
+				<hr>
+				<dtitle>Server&uuml;bersicht</dtitle>
+				<hr>
+				<div id="resc" style="padding-left:15px;">Response</div>
 			</div>
         </div>
 
@@ -34,7 +38,7 @@
 			</div>
         </div>
 	  </div>
-	  <div class="row">
+	 <!-- <div class="row">
 		<div class="col-sm-5 col-lg-5">
 			<div class="half-unit">
 				<dtitle>Serverübersicht</dtitle>
@@ -53,4 +57,4 @@
 				</div>
 			</div>
         </div>
-      </div>    
+      </div>   --> 

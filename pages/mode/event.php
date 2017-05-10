@@ -7,11 +7,11 @@ if(isset($_POST['submit'])):
 	if($_POST['type'] == 'playlist'):
 		($_POST['loop'] == "on") 			? $request.="&loopatend=1" 						: $request.="&loopatend=0";
 		($_POST['prio'] != NULL) 			? $request.="&priority=".$_POST['prio'] 		: $request.="&priority=1";
-		($_POST['start_time'] != NULL) 		? $request.="&starttime=".$_POST['start_time'] 	: $start_time=false;
+		($_POST['start_time'] != NULL) 		? $request.="&starttime=".$_POST['start_time'] 	: $request.="&starttime=00:00:00";
 		($_POST['start_date'] != NULL) 		? $request.="&startdate=".$_POST['start_date'] 	: $start_date=false;
 		($_POST['end_date'] != NULL) 		? $request.="&enddate=".$_POST['end_date'] 		: $end_date=false;
 		($_POST['duration'] != NULL) 		? $request.="&duration=".$_POST['duration'] 	: $duration=false;
-		($_POST['delay'] != NULL) 			? $request.="&timeoffset=".$_POST['delay'] 		: $delay=false;
+		//($_POST['delay'] != NULL) 			? $request.="&timeoffset=".$_POST['delay'] 		: $delay=false;
 		($_POST['mo'] == '2') 				? $day1="2" 									: $day1="0";
 		($_POST['di'] == '4') 				? $day2="4" 									: $day2="0";
 		($_POST['mi'] == '8') 				? $day3="8" 									: $day3="0";
@@ -30,7 +30,7 @@ if(isset($_POST['submit'])):
 		$request .= "&repeat=".$days;
 	endif;	
 	
-	$returns = $between->load_xml($trans->getInfoTrans($request."&seq=150"),'transcoder_event_add.xml');
+	$returns = $between->load_xml($trans->getInfoTrans($request."&seq=15"),'transcoder_event_add.xml');
 	
 	echo "<hr><pre>";
 		print_r($returns['response']);
@@ -62,11 +62,11 @@ endif;
 						<td>
 							<select name="name" class="inputtable">
 							<?php
-								$exit	= 	$between->load_xml($trans->getInfoTrans("op=listplaylists&seq=150"), 'playlisten_activate.xml');
+								$exit	= 	$between->load_xml($trans->getInfoTrans("op=listplaylists&seq=15"), 'playlisten_activate.xml');
 								for($i = 0; $exit['response']['data']['playlists']['playlist'][$i] >= $i; $i++):
 									echo "<option value='".$exit['response']['data']['playlists']['playlist'][$i]['name']."'>Playliste: ".$exit['response']['data']['playlists']['playlist'][$i]['name']."</option>";
 								endfor;
-								$exit2	=	$between->load_xml($trans->getInfoTrans("op=listdjs&seq=150"), 'deejay_activate.xml');
+								$exit2	=	$between->load_xml($trans->getInfoTrans("op=listdjs&seq=15"), 'deejay_activate.xml');
 								for($i = 0; $exit2['response']['data']['djlist']['dj'][$i] >= $i; $i++):
 									echo "<option value='".$exit2['response']['data']['djlist']['dj'][$i]['name']."'>Deejay: ".$exit2['response']['data']['djlist']['dj'][$i]['name']."</option>";
 								endfor;
@@ -108,10 +108,10 @@ endif;
 						<td class="">Dauer</td>
 						<td><input name="duration" placeholder="hh:mm:ss - 24 Stunden Format z.Bsp. 23:59:59" value="" type="text"></td>
 					</tr>
-					<tr class="odd">
+					<!--<tr class="odd">
 						<td class="">Zeitverzögerung</td>
 						<td><input name="delay" placeholder="hh:mm:ss - 24 Stunden Format z.Bsp. 23:59:59" value="" type="text"></td>
-					</tr>
+					</tr>-->
 				</tbody>
 			</table>
 		</div>
@@ -158,7 +158,7 @@ endif;
 					</tr>
 					<tr class="even">
 						<th>Periodisch</th>
-						<td><input name="pero" value="128" type="checkbox"></td>
+						<td><input name="pero" value="128" type="checkbox" checked></td>
 					</tr>
 				</tbody>
 			</table>
@@ -180,7 +180,7 @@ endif;
 <?php
 if(isset($_POST['id_del'])):
 
-	$returns = $between->load_xml($trans->getInfoTrans("op=deleteevent&id=".$_POST['id']."&seq=150"),'transcoder_event_del.xml');
+	$returns = $between->load_xml($trans->getInfoTrans("op=deleteevent&id=".$_POST['id']."&seq=15"),'transcoder_event_del.xml');
 	
 	echo "<hr><pre>";
 		print_r($returns['response']);
@@ -201,14 +201,14 @@ endif;
 						<th>Name</th>
 						<th>Aktiv</th>
 						<th>ID</th>
+						<th>Startzeit</th>
 					</tr>
 				</thead>
 				<tbody>
 		<?php
-		$returns = $between->load_xml($trans->getInfoTrans("op=listevents&seq=150"),'transcoder_event_list.xml');
+		$returns = $between->load_xml($trans->getInfoTrans("op=listevents&seq=15"),'transcoder_event_list.xml');
 		$exit = $returns['response']['data']['eventlist']['event'];
 		
-		//print_r($exit);
 		$i=0;
 		
 		for($i = 0; $exit[$i] >= $i; $i++):
@@ -218,11 +218,13 @@ endif;
 				echo "<td>".$exit[$i]['dj']."</td>";
 				echo "<td>".$exit[$i]['active']."</td>";
 				echo "<td>".$exit[$i]['id']."</td>";
+				echo "<td>".$exit[$i]['calendar']['@attributes']['starttime']."</td>";
 			elseif($exit[$i]['@attributes']['type'] == 'playlist'):
 				echo "<td>Playlist</td>";
 				echo "<td>".$exit[$i]['playlist']."</td>";
 				echo "<td>".$exit[$i]['active']."</td>";
 				echo "<td>".$exit[$i]['id']."</td>";
+				echo "<td>".$exit[$i]['calendar']['@attributes']['starttime']."</td>";
 			endif;	
 			echo "</tr>";
 		endfor;	
