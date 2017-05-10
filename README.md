@@ -14,18 +14,49 @@ Mitarbeit wäre super!<br>
 <h3>How to Use:</h3>
 <li>-> config.php anpassen</li>
 
-<h3>Reuploaded:</h3>
+<h3>Operations / Commands:</h3>
 <ul>
+<li>GetStatus</li>
+<li>GetOptions</li>
+<li>SetOptions</li>
+<li>LogData</li>
+<li>AddPlaylist</li>
+<li>ListPlaylists</li>
+<li>PlaylistData</li>
+<li>DeletePlaylist</li>
+<li>ListEvents</li>
+<li>AddEvent</li>
+<li>DeleteEvent</li>
+<li>ListDJS</li>
+<li>DeleteDJ</li>
+<li>AddDJ</li>
+<li>ModifyDJ</li>
+<li>NextTrack</li>
+<li>Restart</li>
+</ul>
+
+<h3>Comming Soon / In Arbeit</h3>
+<ul>
+<li>GetEndpoints</li>
+<li>SetEndpoint</li>
+<li>DeleteEndpoint</li>
+<li>AbortEvent</li>
+<li>KickDJ</li>
+<li>UnkickDJ</li>
+<li>Capture</li>
+<li>Quit</li>
+</ul>
+<hr>
+<h3>Letzte Änderungen</h3>
 <li>transcoder.php</li>
 <li>main.css</li>
+<li>modi.php</li>
+<li>data.php</li>
+<li>deejay.php</li>
 <li>event.php</li>
-</ul>
-<h3>Edits:</h3>
-<ul>
-<li>FIX: Style für Tabellen und Inputfelder</li>
-<li>ADD: XML Load für Transcoder.php</li>
-<li>ADD: Playlisten und Deejays in Eventseintragen (Deejays und Playlisten Aktivieren)</li>
-</ul>
+<li>play.php</li>
+<li>server.php</li>
+
 <hr>
 <img src="http://teris-cooper.de/radio/home.jpg">
 <img src="http://teris-cooper.de/radio/events.jpg">
