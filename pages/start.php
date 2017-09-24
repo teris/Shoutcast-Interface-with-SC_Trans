@@ -26,20 +26,29 @@
 	  <div class="row">
 		<div class="col-sm-5 col-lg-5">
 			<div class="half-unit">
-				<dtitle>Serverübersicht</dtitle>
+				<dtitle>Server&uuml;bersicht</dtitle>
 				<hr>
-				<div id="resc" style="padding-left:15px;">Response</div>
+				<div id="resc" style="padding-left:15px;">Server&uuml;bersicht wird geladen</div>
 			</div>
 		</div>
 	  
         <div class="col-sm-7 col-lg-7">
       		<div class="half-unit">
-		  		<dtitle>Manueller Begehl</dtitle>
+		  		<dtitle>Manueller Befehl</dtitle>
 		  		<hr>
 	        	<div style="padding: 5px;">
 					<input type="text" id="hiddenInput" class="hiddenInput" placeholder="op=getstatus">
-					<a id="submit" class="submit">Ausführen</a>
+					<a id="submit" class="submit">Ausf&uuml;hren</a>
 				</div>
 			</div>
         </div>
-      </div>    
+      </div> 
+	<div class="row">
+		<div class="col-sm-12 col-lg-12">
+			<div class="dash-unit">
+				<dtitle>Songhistory</dtitle>
+				<hr>
+				<div id="sc_serv" style="padding-left:15px; pedding-right:15px;">Songhistory wird geladen...</div>
+			</div>
+		</div>
+	</div>

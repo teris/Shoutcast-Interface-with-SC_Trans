@@ -1,8 +1,9 @@
-    <?php
+ <?php
     header("Content-Type: text/html; charset=utf-8");
     header("Cache-Control: no-cache, must-revalidate");
     header("Pragma: no-cache");
 	include_once("config.php");
+	date_default_timezone_set('Europe/Berlin');
 	
         $fp = @fsockopen($shoutserver, $shoutport, $errno, $errstr, 30);
 
@@ -25,11 +26,16 @@
 				$shoutcast_curbwidth 			= $shoutcast_bitrate * $shoutcast_currentlisteners;
 				$shoutcast_peakbwidth 			= $shoutcast_bitrate * $shoutcast_peaklisteners;
         }
+	
+	$extras = rand(1,25);
+	$listeners = $shoutcast_currentlisteners+$extras;
 
+	$uhrzeit = date("H:i:s");
+	
     if ($connected == 1):
-		echo 'Bitrate: '.$shoutcast_bitrate.'kb/s<br>';
-		echo 'Zuhörer: '.$shoutcast_currentlisteners.' / '.$shoutcast_maxlisteners.'<br>';
-        echo 'Titel: '.htmlspecialchars($shoutcast_cursong);
+		echo 'Bitrate: '.$shoutcast_bitrate.'kb/s<br> Uhrzeit: '.$uhrzeit.'<br>';
+		//echo 'Zuhörer: '.$listeners.'<br>';
+        echo 'Titel: '.htmlentities($shoutcast_cursong);
     else:
 		echo 'Unser Radio ist zur Zeit offline!';
     endif;

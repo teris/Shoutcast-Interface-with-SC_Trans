@@ -16,6 +16,7 @@
 				<h3><a href="?page=modi&mode=play">Playlisten Einstellungen</a></h3>
 				<h3><a href="?page=modi&mode=event">Event Einstellungen</a></h3>
 				<h3><a href="?page=modi&mode=data">Dateien verwalten</a></h3>
+				<h3><a href="?page=modi&mode=idtag">ID-Tags Bearbeiten</a></h3>
 				<h3><a href="?page=modi&mode=points">Endpoint Einstellungen</a></h3>
 				<hr>
 				<dtitle>Server&uuml;bersicht</dtitle>
