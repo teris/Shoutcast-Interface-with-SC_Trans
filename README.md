@@ -7,6 +7,7 @@ Mitarbeit wäre super!<br>
 <ul>
 <li>[SC_Serv](https://github.com/teris/sc_trans-sc_serv-files)</li>
 <li>[SC_Trans2](https://github.com/teris/sc_trans-sc_serv-files)</li>
+<li>[GetID3]http://www.getid3.org oder https://github.com/JamesHeinrich/getID3</li>
 <li>MAC OS mit Apache2 und php 5.4 oder höher</li>
 <li>Linux mit Apache2 und php 5.4 oder höher</li>
 <li>Windows mit XAmpp und php 5.5 oder höher (IIS nicht getestet)</li>
@@ -33,6 +34,7 @@ Mitarbeit wäre super!<br>
 <li>ModifyDJ</li>
 <li>NextTrack</li>
 <li>Restart</li>
+  <li>ID-Tags Bearbeiten</li>
 </ul>
 
 <h3>Comming Soon / In Arbeit</h3>
@@ -48,14 +50,9 @@ Mitarbeit wäre super!<br>
 </ul>
 <hr>
 <h3>Letzte Änderungen</h3>
-<li>transcoder.php</li>
-<li>main.css</li>
-<li>modi.php</li>
-<li>data.php</li>
-<li>deejay.php</li>
-<li>event.php</li>
-<li>play.php</li>
-<li>server.php</li>
+<li>bugfix: transcoder.php</li>
+<li>bugfix: shoutcast.php</li>
+<li>add: ID-Tag Editor</li>
 
 <hr>
 <img src="http://teris-cooper.de/radio/home.jpg">
