@@ -1,11 +1,42 @@
-<?php include_once("config.php"); 
+<?php 
+define('GETID3_DEMO_BROWSE_ALLOW_EDIT_LINK',   true);
+define('GETID3_DEMO_BROWSE_ALLOW_DELETE_LINK', false);
+define('GETID3_DEMO_BROWSE_ALLOW_MD5_LINK',    false);
+/////////////////////////////////////////////////////////////////
+// die if magic_quotes_runtime or magic_quotes_gpc are set
+if (function_exists('get_magic_quotes_runtime') && get_magic_quotes_runtime()) {
+	die('magic_quotes_runtime is enabled, getID3 will not run.');
+}
+if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+	die('magic_quotes_gpc is enabled, getID3 will not run.');
+}
+/////////////////////////////////////////////////////////////////
+$PageEncoding = 'UTF-8';
+$writescriptfilename = '?page=modi&mode=idtag_edit';
+require_once('getid3/getid3.php');
+
+// Initialize getID3 engine
+$getID3 = new getID3;
+$getID3->setOption(array('encoding' => $PageEncoding));
+
+$getID3checkColor_Head           = 'CCCCDD';
+$getID3checkColor_DirectoryLight = 'FFCCCC';
+$getID3checkColor_DirectoryDark  = 'EEBBBB';
+$getID3checkColor_FileLight      = 'EEEEEE';
+$getID3checkColor_FileDark       = 'DDDDDD';
+$getID3checkColor_UnknownLight   = 'CCCCFF';
+$getID3checkColor_UnknownDark    = 'BBBBDD';
+///////////////////////////////////////////////////////////////////////////////
+header('Content-Type: text/html; charset='.$PageEncoding);
+
+include_once("config.php"); 
 include('function.inc.php');
 session_start(); ?>
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Shoutcast - Admincenter with Transcoder</title>
+    <meta http-equiv="Content-Type" content="text/html;charset='<?php echo $PageEncoding; ?>' />';
+	<title>Shoutcast - Admincenter with Transcoder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Teris Cooper">
