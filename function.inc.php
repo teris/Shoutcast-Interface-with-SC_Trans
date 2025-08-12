@@ -14,8 +14,8 @@ class trans
 		curl_setopt ($ch, CURLOPT_POSTFIELDS, $option);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		$xml = curl_exec($ch);
-		return($xml);
 		curl_close ($ch);
+		return($xml);
 	}
 }
 
@@ -36,6 +36,7 @@ class strings {
 
 		if (is_dir($dir)):
 			$fd = @opendir($dir);
+			$file_array = array();
 			while (($part = @readdir($fd)) == true):
 				clearstatcache();
 				if ($part != '.' && $part != '..'):
@@ -77,7 +78,7 @@ class strings {
 					<th>Pfad</th>
 					<th>Select</th>
 					</tr></thead><tbody>';
-		
+			
 			foreach ($file_array as $file_name):
 				$is_file = "$download_path/$final_path/$file_name";
 				$final_dir_name = urlencode($final_path);
@@ -134,7 +135,7 @@ class strings {
 	
 	function load_xml($action, $file = 'serverinfo.xml', $dir = 'xml/')
 	{
-		$handle = fopen ($dir.$file, w);
+		$handle = fopen ($dir.$file, 'w');
 		
 		fwrite ($handle, $action);
 		fclose ($handle);

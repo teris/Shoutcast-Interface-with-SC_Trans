@@ -9,12 +9,12 @@
 
         if ($fp) {
             fputs($fp, "GET /7.html HTTP/1.0\r\nUser-Agent: XML Getter (Mozilla Compatible)\r\n\r\n");
-				$page 							= "";
+				$page 						= "";
             while(!feof($fp))
-				$page 							.= fgets($fp, 1000);
+				$page 						.= fgets($fp, 1000);
 				fclose($fp);
-				$page 							= ereg_replace(".*<body>", "", $page);
-				$page 							= ereg_replace("</body>.*", ",", $page);
+				$page                          = preg_replace("/.*<body>/s", "", $page);
+				$page                          = preg_replace("#</body>.*#s", ",", $page);
 				$numbers 						= explode(",", $page);
 				$shoutcast_currentlisteners 	= $numbers[0];
 				$connected 						= $numbers[1];

@@ -10,20 +10,29 @@ $trans = new trans();
 
 $between = new strings();
 	
-$reguest = NULL;
-if(isset($_GET['op'])):
+$request = '';
+if (isset($_GET['op'])):
+	$parts = array();
 	foreach($_GET as $key => $select):
-		$request .= $key."=".$select."&";
+		$parts[] = rawurlencode($key) . "=" . rawurlencode($select);
 	endforeach;
+	$request = implode('&', $parts) . '&';
 endif;
 
-echo "<hr>";	
-echo "Befehl: ".$request."seq=150";
+$op = isset($_GET['op']) ? preg_replace('/[^a-zA-Z0-9_\-]/', '', $_GET['op']) : '';
+
+echo "<hr>";
+// avoid duplicating op when echoing built command
+$displayRequest = $request;
+$displayRequest = preg_replace('/(^|&)op=[^&]*&/','\\1', $displayRequest);
+echo "Befehl: op=".$op."&".$displayRequest."seq=150";
 echo "<hr>";
 	
-if($_GET['op']):
-	echo( highlight_string($trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150"),true) );
-	$returns = $between->load_xml($trans->getInfoTrans("op=".$_GET['op']."&".$request."seq=150"),'transcoder.xml');
+if (!empty($op)):
+	$params = "op=".$op."&".$displayRequest."seq=150";
+	$response = $trans->getInfoTrans($params);
+	echo( highlight_string($response,true) );
+	$returns = $between->load_xml($response,'transcoder.xml');
 	echo "<hr><pre>";
 	print_r($returns['response']);
 	echo "</pre>";
