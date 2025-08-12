@@ -2,7 +2,7 @@
 define('GETID3_DEMO_BROWSE_ALLOW_EDIT_LINK',   true);
 define('GETID3_DEMO_BROWSE_ALLOW_DELETE_LINK', false);
 define('GETID3_DEMO_BROWSE_ALLOW_MD5_LINK',    false);
-/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////
 // die if magic_quotes_runtime or magic_quotes_gpc are set
 if (function_exists('get_magic_quotes_runtime') && get_magic_quotes_runtime()) {
 	die('magic_quotes_runtime is enabled, getID3 will not run.');
@@ -10,7 +10,7 @@ if (function_exists('get_magic_quotes_runtime') && get_magic_quotes_runtime()) {
 if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
 	die('magic_quotes_gpc is enabled, getID3 will not run.');
 }
-/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////
 $PageEncoding = 'UTF-8';
 $writescriptfilename = '?page=modi&mode=idtag_edit';
 require_once('getid3/getid3.php');
@@ -107,27 +107,29 @@ session_start(); ?>
     <div class="container">
 		
 		<?php
-			if($_GET['page'] == NULL or !file_exists('pages/'.$_GET['page'].'.php')):
+			$page = isset($_GET['page']) ? preg_replace('/[^a-zA-Z0-9_\-]/', '', $_GET['page']) : '';
+			$target = $page ? 'pages/' . $page . '.php' : '';
+			if(!$page || !file_exists($target)):
 				include('pages/start.php');
 			else:
-				include('pages/'.$_GET['page'].'.php');
+				include($target);
 			endif;
 		?>
 	
 	</div>
 	<div id="footerwrap">
-      	<footer class="clearfix"></footer>
-      	<div class="container">
+       	<footer class="clearfix"></footer>
+       	<div class="container">
 			<div class="row">
 				<div class="col-sm-3 col-lg-3">
 				
 				</div>
-      			<div class="col-sm-9 col-lg-9">
-      			<p><img src="images/logo.png" alt=""></p>
-      			<p>Copyright 2017</p>
-      			</div>
-      		</div>
-      	</div>		
+       			<div class="col-sm-9 col-lg-9">
+       			<p><img src="images/logo.png" alt=""></p>
+       			<p>Copyright 2017</p>
+       			</div>
+       		</div>
+       	</div>		
 	</div>
 <script>
 $('a.befehl').click(function() { 
